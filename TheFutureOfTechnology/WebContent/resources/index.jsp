@@ -7,13 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css"
-	href="resources/css/bootstrap.min.css">
+	href="../resources/css/bootstrap.min.css">
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
 
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/style.css">
 
 
 <title>Cadastro</title>
@@ -27,16 +25,16 @@
 
 
 		<div class="row">
-			<div class="col-md-3">&nbsp;</div>
-			<div class="col-md-3" style="padding: 20px 20px;">
-
+			<div class="col-md-4">&nbsp;</div>
+			<div class="col-md-4 boxForm" style="padding: 20px 20px;">
+			
 				<section class="desc-cadastro">
 					<h2>Dados cadastro</h2>
 					<p>Crie a sua conta e comece a organizar a sua vida financeira</p>
 				</section>
 
 
-				<form class="col-xs-2">
+				<form>
 
 					<!-- Nome -->
 					<div class="form-group">
@@ -72,15 +70,17 @@
 					<div class="my-button">
 						<button type="submit" class="btn btn-primary">Criar</button>
 					</div>
+					
+					<div class="my-button">
+						<button type="submit" class="btn btn-primary">Você já écadastrado? Entrar </button>
+					</div>
 
 
 
 
 				</form>
 
-				<section class="info-login ">
-					<p>Faça login também com as redes sociais</p>
-				</section>
+				
 
 				<!-- Rodpé -->
 				<footer class="rodape">
@@ -92,7 +92,7 @@
 
 				</footer>
 			</div>
-			<div class="col-md-3">&nbsp;</div>
+			<div class="col-md-4">&nbsp;</div>
 		</div>
 
 
