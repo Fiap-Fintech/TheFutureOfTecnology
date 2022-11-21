@@ -22,10 +22,12 @@ public class OracleUsuarioDAO implements UsuarioDAO{
 
 		try {
 			conexao = ConnectionManager.getInstance().getConnection();
-			String sql = "INSERT INTO USUARIO (USUARIOID, NOME,SOBRENOME ) VALUES (SQ_TB_PRODUTO.NEXTVAL, ?, ?)";
+			String sql = "INSERT INTO USUARIO (USUARIOID, NOME,EMAIL,SENHA,TELEFONE ) VALUES (SQ_TB_PRODUTO.NEXTVAL, ?, ?,?,?)";
 			stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());
-			stmt.setString(2, usuario.getSobrenome());
+			stmt.setString(2, usuario.getEmail());
+			stmt.setString(3, usuario.getSenha());
+			stmt.setString(4, usuario.getTelefone());
 
 			stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -50,12 +52,10 @@ public class OracleUsuarioDAO implements UsuarioDAO{
 		try {
 			conexao = ConnectionManager.getInstance().getConnection();
 			String sqlUpdate = "UPDATE USUARIO SET NOME = ? ,"
-					+ " SOBRENOME = ? "
 					+ " WHERE USUARIOID = ?";
 			
 			stmt = conexao.prepareStatement(sqlUpdate);
 			stmt.setString(1,usuario.getNome());
-			stmt.setString(2,usuario.getSobrenome());
 			stmt.setDouble(3,usuario.getUsuarioid());
 			
 			stmt.executeUpdate();
@@ -116,9 +116,11 @@ public class OracleUsuarioDAO implements UsuarioDAO{
 			if(rs.next()) {
 				int codigoUsuario = rs.getInt("USUARIOID");
 				String nomeUsuario = rs.getString("NOME");
-				String sobrenomeUsuario = rs.getString("SOBRENOME");
+				String email = rs.getString("EMAIL");
+				String senha = rs.getString("SENHA");
+				String telefone = rs.getString("TELEFONE");
 
-				usuario = new Usuario(codigoUsuario,nomeUsuario,sobrenomeUsuario);
+				usuario = new Usuario(codigoUsuario,nomeUsuario,email,senha,telefone);
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -148,9 +150,11 @@ public class OracleUsuarioDAO implements UsuarioDAO{
 			while(rs.next()) {
 				int codigoUsuario = rs.getInt("USUARIOID");
 				String nomeUsuario = rs.getString("NOME");
-				String sobrenomeUsuario = rs.getString("SOBRENOME");
+				String email = rs.getString("EMAIL");
+				String senha = rs.getString("SENHA");
+				String telefone = rs.getString("TELEFONE");
 				
-				Usuario usuario = new Usuario(codigoUsuario,nomeUsuario,sobrenomeUsuario);
+				Usuario usuario = new Usuario(codigoUsuario,nomeUsuario,email,senha,telefone);
 				
 				todosUsuarios.add(usuario);
 			}

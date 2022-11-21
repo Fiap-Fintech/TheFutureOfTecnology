@@ -16,7 +16,7 @@ public class TesteUsuarioDAO {
 		
 		
 		// cadastrar
-		Usuario usuario = new Usuario(0,"Joao" , "Silva");
+		Usuario usuario = new Usuario(0,"Joao" , "EMAIL1@GMAIL","123456","58326111");
 		
 		try {
 			dao.cadastrarUsuario(usuario);
@@ -25,8 +25,8 @@ public class TesteUsuarioDAO {
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
-		
-		//Buscar um produto pelo código e atualizar
+	}}
+		/*//Buscar um produto pelo código e atualizar
 		usuario = dao.buscarUsuario(20);
 		usuario.setNome("teste");
 		usuario.setSobrenome("teste1");
@@ -51,4 +51,4 @@ public class TesteUsuarioDAO {
 			e.printStackTrace();
 		}	
 }
-}
+}*/
