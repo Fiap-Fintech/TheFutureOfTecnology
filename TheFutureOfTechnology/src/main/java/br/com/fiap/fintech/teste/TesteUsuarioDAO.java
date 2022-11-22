@@ -16,7 +16,7 @@ public class TesteUsuarioDAO {
 		
 		
 		// cadastrar
-		Usuario usuario = new Usuario(0,"Joao" , "EMAIL1@GMAIL","123456","58326111");
+		Usuario usuario = new Usuario(0,"Maria" , "john@GMAIL","123444456","5844426111");
 		
 		try {
 			dao.cadastrarUsuario(usuario);

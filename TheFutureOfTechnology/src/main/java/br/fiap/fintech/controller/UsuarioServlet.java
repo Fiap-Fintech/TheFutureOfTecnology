@@ -17,41 +17,44 @@ import br.com.fiap.fintech.factory.DAOFactory;
  */
 @WebServlet("/cadastroUsuario")
 public class UsuarioServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private UsuarioDAO dao;
-	
+
 	@Override
-	public void init() throws ServletException{
+	public void init() throws ServletException {
 		super.init();
 		dao = DAOFactory.getUsuarioDAO();
 	}
-	
-	protected void doPost(HttpServletRequest request,HttpServletResponse response )throws ServletException, IOException{
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("resources/formulario.jsp").forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		try {
 			String nome = request.getParameter("Nome");
-			String email = request.getParameter("E-mail");
+			String email = request.getParameter("Email");
 			String senha = request.getParameter("Senha");
 			String telefone = request.getParameter("Telefone");
-			
-			Usuario usuario = new Usuario(0 ,nome,email , senha ,telefone);
-			dao.cadastrarUsuario(usuario);
-			
-			request.setAttribute("msg","Usuario cadastrado");
+
+			Usuario usuario1 = new Usuario(0, nome, email, senha, telefone);
+
+			dao.cadastrarUsuario(usuario1);
+
+			// request.setAttribute("msg","Usuario cadastrado");
 			System.out.println("Sucesso");
-			
-		
-		}catch(DBException db) {
+
+		} catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao cadastrar");
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("Erro", "Valide os dados");
-			
-			
-		
-		request.getRequestDispatcher("sucesso.jsp").forward(request, response);
-  
-
-	}}
+			request.setAttribute("Erro", "Valide os dados");
+		}
+	}
 }
